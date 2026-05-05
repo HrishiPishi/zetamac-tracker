@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Zetamac Progress Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Zetamac Progress Tracker</p>
+        <h1>Your arithmetic training dashboard</h1>
+        <p class="muted">Tracks every detected game locally: daily best, attempts, average score, streaks, and score trend.</p>
+      </div>
+      <div class="actions">
+        <select id="rangeSelect" aria-label="Range">
+          <option value="7">last 7 days</option>
+          <option value="30" selected>last 30 days</option>
+          <option value="90">last 90 days</option>
+          <option value="all">all time</option>
+        </select>
+        <button id="exportBtn">export</button>
+        <label class="fileBtn">
+          import
+          <input id="importInput" type="file" accept="application/json" hidden />
+        </label>
+      </div>
+    </section>
+
+    <section class="grid cards">
+      <article class="card"><span>all time best</span><strong id="allBest">—</strong></article>
+      <article class="card"><span>today best</span><strong id="todayBest">—</strong></article>
+      <article class="card"><span>plays today</span><strong id="playsToday">—</strong></article>
+      <article class="card"><span>current streak</span><strong id="streak">—</strong></article>
+      <article class="card"><span>average selected</span><strong id="avgSelected">—</strong></article>
+      <article class="card"><span>total plays</span><strong id="totalPlays">—</strong></article>
+    </section>
+
+    <section class="panel">
+      <div class="panelHead">
+        <div>
+          <h2>Daily best score</h2>
+          <p class="muted">Line shows your highest score each day in the selected range.</p>
+        </div>
+      </div>
+      <canvas id="bestChart" height="220"></canvas>
+    </section>
+
+    <section class="panel">
+      <div class="panelHead">
+        <div>
+          <h2>Attempts per day</h2>
+          <p class="muted">Bars show how many games you played each day.</p>
+        </div>
+      </div>
+      <canvas id="playsChart" height="220"></canvas>
+    </section>
+
+    <section class="grid twoCol">
+      <section class="panel">
+        <h2>Add a score manually</h2>
+        <p class="muted">Use this if the tracker missed a game or you played on another device.</p>
+        <form id="manualForm" class="manualForm">
+          <label>date <input id="manualDate" type="date" required /></label>
+          <label>score <input id="manualScore" type="number" min="0" step="1" required /></label>
+          <button type="submit">save score</button>
+        </form>
+      </section>
+
+      <section class="panel dangerZone">
+        <h2>Data controls</h2>
+        <p class="muted">Your data is stored only in Chrome extension storage on this browser.</p>
+        <button id="clearBtn" class="danger">clear all data</button>
+      </section>
+    </section>
+
+    <section class="panel">
+      <div class="panelHead">
+        <div>
+          <h2>Daily summary</h2>
+          <p class="muted">Grouped by local date.</p>
+        </div>
+      </div>
+      <div class="tableWrap">
+        <table>
+          <thead>
+            <tr><th>date</th><th>best</th><th>plays</th><th>average</th><th>first play</th><th>last play</th></tr>
+          </thead>
+          <tbody id="dailyTable"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panelHead">
+        <div>
+          <h2>Recent sessions</h2>
+          <p class="muted">Newest games first.</p>
+        </div>
+      </div>
+      <div class="tableWrap">
+        <table>
+          <thead>
+            <tr><th>time</th><th>score</th><th>source</th><th></th></tr>
+          </thead>
+          <tbody id="sessionTable"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <script src="dashboard.js"></script>
+</body>
+</html>
