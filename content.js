@@ -71,9 +71,9 @@ function setSessions(sessions) {
 
 function isDuplicate(sessions, session) {
   return sessions.some(existing => {
-    const sameKey = session.gameKey && existing.gameKey === session.gameKey;
-    const closeTime = Math.abs(new Date(existing.timestamp).getTime() - new Date(session.timestamp).getTime()) < 15_000;
-    return (sameKey || closeTime) && existing.score === session.score;
+    const timeDiff = Math.abs(new Date(existing.timestamp).getTime() - new Date(session.timestamp).getTime());
+    const closeTime = timeDiff < 3_000;
+    return closeTime && existing.score === session.score;
   });
 }
 
