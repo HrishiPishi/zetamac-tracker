@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Zetamac Progress Dashboard</title>
+  <title>zetamac tracker</title>
   <link rel="stylesheet" href="dashboard.css" />
 </head>
 <body>
   <main class="shell">
     <section class="hero">
       <div>
-        <p class="eyebrow">Zetamac Progress Tracker</p>
-        <h1>Your arithmetic training dashboard</h1>
-        <p class="muted">Tracks every detected game locally: daily best, attempts, average score, streaks, and score trend.</p>
+        <p class="eyebrow">zetamac tracker</p>
+        <h1>zetamac tracker</h1>
+        <p class="muted">scores and stuff from when i play zetamac</p>
       </div>
       <div class="actions">
         <select id="rangeSelect" aria-label="Range">
@@ -41,8 +41,8 @@
     <section class="panel">
       <div class="panelHead">
         <div>
-          <h2>Daily best score</h2>
-          <p class="muted">Line shows your highest score each day in the selected range.</p>
+          <h2>daily best score</h2>
+          <p class="muted">best score from each day</p>
         </div>
       </div>
       <canvas id="bestChart" height="220"></canvas>
@@ -51,8 +51,8 @@
     <section class="panel">
       <div class="panelHead">
         <div>
-          <h2>Attempts per day</h2>
-          <p class="muted">Bars show how many games you played each day.</p>
+          <h2>plays per day</h2>
+          <p class="muted">how many times i played each day</p>
         </div>
       </div>
       <canvas id="playsChart" height="220"></canvas>
@@ -60,8 +60,8 @@
 
     <section class="grid twoCol">
       <section class="panel">
-        <h2>Add a score manually</h2>
-        <p class="muted">Use this if the tracker missed a game or you played on another device.</p>
+        <h2>add score manually</h2>
+        <p class="muted">for when it misses one</p>
         <form id="manualForm" class="manualForm">
           <label>date <input id="manualDate" type="date" required /></label>
           <label>score <input id="manualScore" type="number" min="0" step="1" required /></label>
@@ -70,8 +70,8 @@
       </section>
 
       <section class="panel dangerZone">
-        <h2>Data controls</h2>
-        <p class="muted">Your data is stored only in Chrome extension storage on this browser.</p>
+        <h2>data controls</h2>
+        <p class="muted">stored locally in chrome</p>
         <button id="clearBtn" class="danger">clear all data</button>
       </section>
     </section>
@@ -79,8 +79,8 @@
     <section class="panel">
       <div class="panelHead">
         <div>
-          <h2>Daily summary</h2>
-          <p class="muted">Grouped by local date.</p>
+          <h2>daily summary</h2>
+          <p class="muted">grouped by date</p>
         </div>
       </div>
       <div class="tableWrap">
@@ -96,8 +96,8 @@
     <section class="panel">
       <div class="panelHead">
         <div>
-          <h2>Recent sessions</h2>
-          <p class="muted">Newest games first.</p>
+          <h2>recent sessions</h2>
+          <p class="muted">newest first</p>
         </div>
       </div>
       <div class="tableWrap">

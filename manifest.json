@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Zetamac Progress Tracker",
-  "description": "Tracks Zetamac arithmetic scores, daily bests, plays per day, and improvement trends locally in your browser.",
-  "version": "1.0.0",
+  "name": "zetamac tracker",
+  "description": "tracks zetamac scores locally",
+  "version": "1.0.1",
   "permissions": ["storage", "activeTab"],
   "host_permissions": [
     "https://arithmetic.zetamac.com/*",
